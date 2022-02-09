@@ -2,9 +2,12 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { IconButton, Stack, TextField } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
+
 import { useState } from 'react';
 
 import ToDo from '../javascripts/ToDo'
@@ -23,10 +26,10 @@ const ToDoAdder = ({ addToDo }) => {
   }
 
   return (
-    <Card sx={{ minWidth: 345 }}>
+    <Card sx={{ minWidth: 350 }}>
       <CardContent>
         <Stack spacing={2}>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant='h5' component='div'>
             Add New ToDo
           </Typography>
           <TextField
@@ -48,12 +51,18 @@ const ToDoAdder = ({ addToDo }) => {
         </Stack>
       </CardContent>
       <CardActions>
+      <Stack
+        width={350}
+        direction='row'
+        justifyContent='space-evenly'
+      >
         <IconButton onClick={onAddNew}>
           <AddIcon />
         </IconButton>
         <IconButton onClick={onClearFields}>
           <ClearIcon />
         </IconButton>
+      </Stack>
       </CardActions>
     </Card>
   );

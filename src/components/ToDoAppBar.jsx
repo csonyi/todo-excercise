@@ -5,13 +5,13 @@ import Container from '@mui/material/Container';
 
 const ToDoAppBar = () => {
   return (
-    <AppBar position="static">
+    <AppBar position='static' sx={{ borderRadius: 1 }}>
       <Container>
         <Toolbar disableGutters>
           <Typography
-            variant="h5"
+            variant='h5'
             noWrap
-            component="div"
+            component='div'
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             ToDo Excersize

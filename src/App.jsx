@@ -1,9 +1,10 @@
-import { Container, Grid } from '@mui/material';
-import { useState } from 'react';
-import './App.css';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 import ToDoAdder from './components/ToDoAdder';
 import ToDoAppBar from './components/ToDoAppBar';
 import ToDoCard from './components/ToDoCard';
+
+import { useState } from 'react';
 
 function App() {
   const [toDoItems, setTodoItems] = useState([])
@@ -20,12 +21,17 @@ function App() {
   return (
     <Container disableGutters>
       <ToDoAppBar />
-      <Grid container padding={1} rowGap={1} columnGap={1}>
-        <ToDoAdder item
+      <Grid container
+        padding={1}
+        rowGap={1}
+        columnGap={1}
+        justifyContent='flex-start'
+      >
+        <ToDoAdder item xs={3}
           addToDo={addToDo}
         />
         {toDoItems.map((toDoItem, index) => (
-          <ToDoCard
+          <ToDoCard item xs
             key={index}
             toDoItem={toDoItem}
             removeToDo={removeToDo}

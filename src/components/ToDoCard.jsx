@@ -6,7 +6,10 @@ import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DoneIcon from '@mui/icons-material/Done';
-import { IconButton, Stack, TextField } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+
 import { useState } from 'react';
 
 const EditModeContent = ({ toDoItem }) => {
@@ -49,12 +52,12 @@ const EditModeContent = ({ toDoItem }) => {
 const ReadModeContent = ({ toDoItem }) => (
   <CardContent>
     <Stack spacing={2}>
-      <Typography gutterBottom variant="h5" component="div"
+      <Typography gutterBottom variant='h5' component='div'
         sx={toDoItem.done && { textDecoration: 'line-through' }}
       >
         {toDoItem?.title}
       </Typography>
-      <Typography gutterBottom variant='body1' component="div"
+      <Typography gutterBottom variant='body1' component='div'
         sx={toDoItem.done && { textDecoration: 'line-through' }}
       >
         {toDoItem?.description}
@@ -75,10 +78,11 @@ const ToDoCard = ({ toDoItem, removeToDo }) => {
   }
 
   return (
-    <Card sx={{ minWidth: 256, maxWidth: 345 }}>
+    <Card>
       <Stack
-        height='100%'
-        direction="column"
+        width={365}
+        height={340}
+        direction='column'
         alignItems='flex-start'
         justifyContent='space-between'
         spacing={2}
@@ -89,7 +93,7 @@ const ToDoCard = ({ toDoItem, removeToDo }) => {
         }
         <CardActions>
           <Stack
-            width={256}
+            width={355}
             direction='row'
             justifyContent='space-evenly'
           >
