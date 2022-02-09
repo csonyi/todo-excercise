@@ -1,16 +1,18 @@
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import EditIcon from '@mui/icons-material/Edit';
-import SaveIcon from '@mui/icons-material/Save';
-import DeleteIcon from '@mui/icons-material/Delete';
-import DoneIcon from '@mui/icons-material/Done';
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import Typography from '@mui/material/Typography'
+import EditIcon from '@mui/icons-material/Edit'
+import SaveIcon from '@mui/icons-material/Save'
+import DeleteIcon from '@mui/icons-material/Delete'
+import DoneIcon from '@mui/icons-material/Done'
+import IconButton from '@mui/material/IconButton'
+import Stack from '@mui/material/Stack'
+import TextField from '@mui/material/TextField'
+import Tooltip from '@mui/material/Tooltip'
 
-import { useState } from 'react';
+
+import { useState } from 'react'
 
 const EditModeContent = ({ toDoItem }) => {
   const [title, setTitle] = useState(toDoItem.title)
@@ -66,7 +68,7 @@ const ReadModeContent = ({ toDoItem }) => (
   </CardContent>
 )
 
-const ToDoCard = ({ toDoItem, removeToDo }) => {
+const ToDoCard = ({ toDoItem, removeToDo, saveToLS }) => {
   const [editMode, setEditMode] = useState(false)
   const [isDone, setDone] = useState(toDoItem.done)
 
@@ -75,6 +77,7 @@ const ToDoCard = ({ toDoItem, removeToDo }) => {
   const onMarkDone = () => {
     toDoItem.markDone()
     setDone(toDoItem.done)
+    saveToLS()
   }
 
   return (
@@ -98,26 +101,32 @@ const ToDoCard = ({ toDoItem, removeToDo }) => {
             justifyContent='space-evenly'
           >
             { !isDone &&
-              <IconButton onClick={toggleEditMode}>
-                { editMode
-                  ? <SaveIcon />
-                  : <EditIcon />
-                }
-              </IconButton>
+              <Tooltip title={editMode ? 'Save' : 'Edit'}>
+                <IconButton onClick={toggleEditMode}>
+                  { editMode
+                    ? <SaveIcon />
+                    : <EditIcon />
+                  }
+                </IconButton>
+              </Tooltip>
             }
-            <IconButton onClick={() => removeToDo(toDoItem)}>
-              <DeleteIcon />
-            </IconButton>
-            { !(isDone || editMode) && 
-              <IconButton onClick={onMarkDone}>
-                <DoneIcon />
+            <Tooltip title='Delete'>
+              <IconButton onClick={() => removeToDo(toDoItem)}>
+                <DeleteIcon />
               </IconButton>
+            </Tooltip>
+            { !(isDone || editMode) && 
+              <Tooltip title='Mark done'>
+                <IconButton onClick={onMarkDone}>
+                  <DoneIcon />
+                </IconButton>
+              </Tooltip>
             }
           </Stack>
         </CardActions>
       </Stack>
     </Card>
-  );
-};
+  )
+}
 
-export default ToDoCard;
+export default ToDoCard

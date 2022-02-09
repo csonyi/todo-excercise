@@ -1,14 +1,15 @@
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import AddIcon from '@mui/icons-material/Add';
-import ClearIcon from '@mui/icons-material/Clear';
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
+import Stack from '@mui/material/Stack'
+import TextField from '@mui/material/TextField'
+import AddIcon from '@mui/icons-material/Add'
+import ClearIcon from '@mui/icons-material/Clear'
+import Tooltip from '@mui/material/Tooltip'
 
-import { useState } from 'react';
+import { useState } from 'react'
 
 import ToDo from '../javascripts/ToDo'
 
@@ -56,16 +57,20 @@ const ToDoAdder = ({ addToDo }) => {
         direction='row'
         justifyContent='space-evenly'
       >
-        <IconButton onClick={onAddNew}>
-          <AddIcon />
-        </IconButton>
-        <IconButton onClick={onClearFields}>
-          <ClearIcon />
-        </IconButton>
+        <Tooltip title='Add new'>
+          <IconButton onClick={onAddNew}>
+            <AddIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title='Clear fields'>
+          <IconButton onClick={onClearFields}>
+            <ClearIcon />
+          </IconButton>
+        </Tooltip>
       </Stack>
       </CardActions>
     </Card>
-  );
-};
+  )
+}
 
-export default ToDoAdder;
+export default ToDoAdder

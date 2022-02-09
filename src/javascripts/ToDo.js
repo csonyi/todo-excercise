@@ -1,12 +1,15 @@
 export default class ToDo {
-  constructor(title, description) {
-    this.id = ToDo.nextId++
+  constructor(title, description, id, done = false) {
     this.title = title
     this.description = description
-    this.done = false
+    this.id = id || ToDo.nextId++
+    if (id) {
+      ToDo.nextId = ++id
+    }
+    this.done = done
   }
 
-  static nextId = 0;
+  static nextId = 0
   
   markDone() {
     this.done = true
