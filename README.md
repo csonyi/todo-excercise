@@ -4,10 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## AC
 Create a simple todo list! UI shall contain a list of todo items and controls to modify the list:
-  - [ ] You can add an item with title + description to the todo list
-  - [ ] You can remove an item
-  - [ ] You can edit the description and title
-  - [ ] You can mark it done, when done its not editable
+  - [x] You can add an item with title + description to the todo list
+  - [x] You can remove an item
+  - [x] You can edit the description and title
+  - [x] You can mark it done, when done its not editable
 
 ## Available Scripts
 
