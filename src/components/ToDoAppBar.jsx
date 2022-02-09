@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 import Tooltip from '@mui/material/Tooltip'
 import IconButton from '@mui/material/IconButton'
-import ClearAllIcon from '@mui/icons-material/ClearAll';
+import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 
 import { useState } from 'react'
 
@@ -64,9 +64,9 @@ const ToDoAppBar = ({ toDoItems, setDisplayedItems, setToDoItems }) => {
               onChange={onQueryStringChange}
               onFocus={onFocus}
             />
-            <Tooltip title='Clear localstorage'>
+            <Tooltip title='Armageddon'>
               <IconButton onClick={armageddon}>
-                <ClearAllIcon />
+                <LocalFireDepartmentIcon />
               </IconButton>
             </Tooltip>
           </Stack>

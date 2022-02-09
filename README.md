@@ -1,5 +1,23 @@
 # ToDo Excercise
 
+A small ToDo app.
+
+You can use the first card on the screen to add new ToDo cards.
+It also has a button to conviniently clear both input fields.
+
+Each ToDo card has 3 buttons:
+* Edit/Save     - Switches between "read" and "edit" mode
+* Delete        - Deletes the card
+* Mark done  - Marks the card as "Done"
+
+After a card is marked as done, the "Edit/Save" and "Mark done" buttons disappear, and the card can only be deleted.
+
+The app saves the ToDo items to localstorage each time a new card is added, a card is deleted or is gets marked as "Done".
+
+The AppBar on the top of the page has a search field, that can be used to filter the cards. It searches in both the titles and descriptions of the cards.
+
+Next to the search bar there is a small "Armageddon" button. This deletes all the cards, and wipes the localstorage. Very convinient.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## AC
